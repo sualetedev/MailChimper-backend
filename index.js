@@ -7,6 +7,29 @@ const UserRoutes = require('./routes/user');
 const AudienceRoutes = require('./routes/audience');
 const CampaignRoutes = require('./routes/campaign');
 
+//Instanciamos swagger
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+const swaggerOptions = {
+    definition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'API-MailChimper',
+            version: '1.0.0',
+            description: 'API de MailChimper'
+}, 
+servers: [
+            {
+                url: 'http://localhost:3900/api'
+            }
+        ]
+    },
+    apis: ['./routes/*.js']
+}
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+
 
 connection();
 
@@ -20,6 +43,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended : true }));
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 //Rutas
 
 app.get('/probando', (req, res) => {
