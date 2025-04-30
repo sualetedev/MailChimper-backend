@@ -76,6 +76,6 @@ router.post('/login', UserController.login);
  *       200:
  *         description: Perfil obtenido correctamente
  */
-router.get('/getProfile', check.auth, UserController.getProfile);
+router.get('/getProfile/:id', check.auth, UserController.getProfile);
 
 module.exports = router;

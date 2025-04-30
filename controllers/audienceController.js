@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const Audience = require("../models/Audience");
 
 const createAudience = async (req, res) => {
@@ -12,7 +13,7 @@ const createAudience = async (req, res) => {
       });
     }
     const audience = new Audience({
-      userId,
+      userId: mongoose.Types.ObjectId(userId),
       name,
       contacts: contacts || [],
     });
@@ -35,8 +36,9 @@ const createAudience = async (req, res) => {
 
 const getAudience = async (req, res) => {
   try {
-    const { userId } = req.user.id;
-    const audiences = await Audience.find({ userId });
+    const  userId  = req.user.id;
+    console.log(userId);
+    const audiences = await Audience.find({ userId: new mongoose.Types.ObjectId(userId) });
     if (!audiences) {
       return res.status(404).send({
         status: "error",
