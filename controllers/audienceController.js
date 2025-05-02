@@ -13,10 +13,14 @@ const createAudience = async (req, res) => {
       });
     }
     const audience = new Audience({
-      userId: mongoose.Types.ObjectId(userId),
+      userId: new mongoose.Types.ObjectId(userId),
       name,
       contacts: contacts || [],
     });
+    console.log("audience")
+    console.log(audience);
+    console.log("Req body")
+    console.log(req.body);
     await audience.save();
 
     return res.status(201).send({
@@ -37,7 +41,6 @@ const createAudience = async (req, res) => {
 const getAudience = async (req, res) => {
   try {
     const  userId  = req.user.id;
-    console.log(userId);
     const audiences = await Audience.find({ userId: new mongoose.Types.ObjectId(userId) });
     if (!audiences) {
       return res.status(404).send({
