@@ -1,6 +1,112 @@
 const Audience = require("../models/Audience");
 const Contact = require("../models/Contact");
 
+const getContactsByUser = async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    if (!userId) {
+      return res.status(400).send({
+        status: "error",
+        message: "Faltan datos por enviar",
+      });
+    }
+
+    const contacts = await Contact.find({ user: userId });
+
+    if (!contacts) {
+      return res.status(404).send({
+        status: "error",
+        message: "No se han encontrado contactos para este usuario",
+      });
+    }
+
+    return res.status(200).send({
+      status: "success",
+      message: "Contactos del usuario encontrados",
+      contacts,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({
+      status: error,
+      message: "Error en el getContactsByUser",
+    });
+  }
+};
+
+const createContact = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { name, email, tags, location } = req.body;
+
+    if (!name || !email) {
+      return res.status(404).send({
+        status: "error",
+        message: "Faltan datos por enviar",
+      });
+    }
+
+    const newContact = new Contact({
+      name,
+      email,
+      tags,
+      location,
+      user: userId,
+    });
+
+    const savedContact = await newContact.save();
+
+    return res.status(200).send({
+      status: "success",
+      contact: savedContact,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({
+      status: "error",
+      message: "Error en el createContact",
+    });
+  }
+};
+
+const eliminateContact = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { email } = req.body;
+    if (!email) {
+      return res.status(400).send({
+        status: "error",
+        message: "Faltan datos",
+      });
+    }
+
+    const eliminatedContact = await Contact.findOneAndDelete({
+      user: userId,
+      email: email,
+    });
+
+    if (eliminatedContact) {
+      return res.status(200).send({
+        status: "success",
+        message: "EliminateContact realizado con éxito",
+        contact: eliminatedContact,
+      });
+    } else {
+      return res.status(404).send({
+        status: "error",
+        message: "No se encontró un contacto con ese email",
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({
+      status: "error",
+      message: "Error en el eliminateContact",
+    });
+  }
+};
+
 // Agregar un nuevo contacto a una audiencia
 const addContact = async (req, res) => {
   try {
@@ -114,42 +220,6 @@ const getContactById = async (req, res) => {
   }
 };
 
-const getContactsByUser = async (req, res) => {
-  try {
-    const userId = req.user.id;
-
-    if (!userId) {
-      return res.status(400).send({
-        status: "error",
-        message: "Faltan datos por enviar",
-      });
-    }
-
-    const contacts = Contact.find({ user: userId})
-
-    if(!contacts){
-      return res.status(404).send({
-        status: "error",
-        message: "No se han encontrado contactos para este usuario"
-      })
-    }
-
-    return res.status(200).send({
-      status: "success",
-      message: "Contactos del usuario encontrados",
-      contacts
-    })
-    
-
-  } catch (error) {
-    console.error(error);
-    return res.status(500).send({
-      status: error,
-      message: "Error en el getContactsByUser",
-    });
-  }
-};
-
 // Actualizar un contacto en una audiencia
 const updateContact = async (req, res) => {
   try {
@@ -247,4 +317,6 @@ module.exports = {
   updateContact,
   deleteContact,
   getContactsByUser,
+  createContact,
+  eliminateContact,
 };

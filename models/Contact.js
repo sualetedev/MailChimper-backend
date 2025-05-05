@@ -6,7 +6,8 @@ const contactSchema = new Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
   },
   tags: [String],
   location: String,

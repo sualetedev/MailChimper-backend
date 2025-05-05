@@ -1,9 +1,23 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const check = require('../middleware/auth');
-const ContactController = require('../controllers/contactController');
+const check = require("../middleware/auth");
+const ContactController = require("../controllers/contactController");
 
-// Rutas 
+// Rutas
+
+router.get(
+  "/getContactsByUser",
+  check.auth,
+  ContactController.getContactsByUser
+);
+
+router.post("/createContact", check.auth, ContactController.createContact);
+
+router.delete(
+  "/eliminateContact",
+  check.auth,
+  ContactController.eliminateContact
+);
 
 /**
  * @swagger
@@ -39,7 +53,7 @@ const ContactController = require('../controllers/contactController');
  *       201:
  *         description: Contacto agregado
  */
-router.post('/:audienceId/add', protect, contactController.addContact);
+router.post("/:audienceId/add", check.auth, ContactController.addContact);
 
 /**
  * @swagger
@@ -58,7 +72,7 @@ router.post('/:audienceId/add', protect, contactController.addContact);
  *       200:
  *         description: Listado de contactos
  */
-router.get('/:audienceId', check.auth, contactController.getContactsByAudience);
+router.get("/:audienceId", check.auth, ContactController.getContactsByAudience);
 
 /**
  * @swagger
@@ -82,7 +96,11 @@ router.get('/:audienceId', check.auth, contactController.getContactsByAudience);
  *       200:
  *         description: Contacto encontrado
  */
-router.get('/:audienceId/:contactId', check.auth, contactController.getContactById);
+router.get(
+  "/:audienceId/:contactId",
+  check.auth,
+  ContactController.getContactById
+);
 
 /**
  * @swagger
@@ -122,7 +140,11 @@ router.get('/:audienceId/:contactId', check.auth, contactController.getContactBy
  *       200:
  *         description: Contacto actualizado
  */
-router.put('/:audienceId/:contactId', check.auth, contactController.updateContact);
+router.put(
+  "/:audienceId/:contactId",
+  check.auth,
+  ContactController.updateContact
+);
 
 /**
  * @swagger
@@ -146,10 +168,10 @@ router.put('/:audienceId/:contactId', check.auth, contactController.updateContac
  *       200:
  *         description: Contacto eliminado
  */
-router.delete('/:audienceId/:contactId', check.auth, contactController.deleteContact);
-
-router.get('/getContactsByUser', check.auth , contactController.getContactsByUser)
-
-
+router.delete(
+  "/:audienceId/:contactId",
+  check.auth,
+  ContactController.deleteContact
+);
 
 module.exports = router;
