@@ -1,4 +1,5 @@
-const Audience = require('../models/Audience');
+const Audience = require("../models/Audience");
+const Contact = require("../models/Contact");
 
 // Agregar un nuevo contacto a una audiencia
 const addContact = async (req, res) => {
@@ -8,17 +9,20 @@ const addContact = async (req, res) => {
 
     if (!name || !email) {
       return res.status(400).json({
-        status: 'error',
-        message: 'Faltan datos por enviar'
+        status: "error",
+        message: "Faltan datos por enviar",
       });
     }
 
-    const audience = await Audience.findOne({ _id: audienceId, userId: req.user.id });
+    const audience = await Audience.findOne({
+      _id: audienceId,
+      userId: req.user.id,
+    });
 
     if (!audience) {
       return res.status(404).json({
-        status: 'error',
-        message: 'Audiencia no encontrada'
+        status: "error",
+        message: "Audiencia no encontrada",
       });
     }
 
@@ -28,44 +32,45 @@ const addContact = async (req, res) => {
     await audience.save();
 
     return res.status(201).json({
-      status: 'success',
-      message: 'Contacto agregado correctamente',
-      contact: newContact
+      status: "success",
+      message: "Contacto agregado correctamente",
+      contact: newContact,
     });
-
   } catch (error) {
     console.error(error);
     return res.status(500).json({
-      status: 'error',
-      message: 'Error al agregar contacto'
+      status: "error",
+      message: "Error al agregar contacto",
     });
   }
 };
 
 // Obtener todos los contactos de una audiencia
-const getContacts = async (req, res) => {
+const getContactsByAudience = async (req, res) => {
   try {
     const { audienceId } = req.params;
 
-    const audience = await Audience.findOne({ _id: audienceId, userId: req.user.id });
+    const audience = await Audience.findOne({
+      _id: audienceId,
+      userId: req.user.id,
+    });
 
     if (!audience) {
       return res.status(404).json({
-        status: 'error',
-        message: 'Audiencia no encontrada'
+        status: "error",
+        message: "Audiencia no encontrada",
       });
     }
 
     return res.status(200).json({
-      status: 'success',
-      contacts: audience.contacts
+      status: "success",
+      contacts: audience.contacts,
     });
-
   } catch (error) {
     console.error(error);
     return res.status(500).json({
-      status: 'error',
-      message: 'Error al obtener los contactos'
+      status: "error",
+      message: "Error al obtener los contactos",
     });
   }
 };
@@ -75,12 +80,15 @@ const getContactById = async (req, res) => {
   try {
     const { audienceId, contactId } = req.params;
 
-    const audience = await Audience.findOne({ _id: audienceId, userId: req.user.id });
+    const audience = await Audience.findOne({
+      _id: audienceId,
+      userId: req.user.id,
+    });
 
     if (!audience) {
       return res.status(404).json({
-        status: 'error',
-        message: 'Audiencia no encontrada'
+        status: "error",
+        message: "Audiencia no encontrada",
       });
     }
 
@@ -88,21 +96,56 @@ const getContactById = async (req, res) => {
 
     if (!contact) {
       return res.status(404).json({
-        status: 'error',
-        message: 'Contacto no encontrado'
+        status: "error",
+        message: "Contacto no encontrado",
       });
     }
 
     return res.status(200).json({
-      status: 'success',
-      contact
+      status: "success",
+      contact,
     });
-
   } catch (error) {
     console.error(error);
     return res.status(500).json({
-      status: 'error',
-      message: 'Error al obtener el contacto'
+      status: "error",
+      message: "Error al obtener el contacto",
+    });
+  }
+};
+
+const getContactsByUser = async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    if (!userId) {
+      return res.status(400).send({
+        status: "error",
+        message: "Faltan datos por enviar",
+      });
+    }
+
+    const contacts = Contact.find({ user: userId})
+
+    if(!contacts){
+      return res.status(404).send({
+        status: "error",
+        message: "No se han encontrado contactos para este usuario"
+      })
+    }
+
+    return res.status(200).send({
+      status: "success",
+      message: "Contactos del usuario encontrados",
+      contacts
+    })
+    
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({
+      status: error,
+      message: "Error en el getContactsByUser",
     });
   }
 };
@@ -113,12 +156,15 @@ const updateContact = async (req, res) => {
     const { audienceId, contactId } = req.params;
     const { name, email, tags, location } = req.body;
 
-    const audience = await Audience.findOne({ _id: audienceId, userId: req.user.id });
+    const audience = await Audience.findOne({
+      _id: audienceId,
+      userId: req.user.id,
+    });
 
     if (!audience) {
       return res.status(404).json({
-        status: 'error',
-        message: 'Audiencia no encontrada'
+        status: "error",
+        message: "Audiencia no encontrada",
       });
     }
 
@@ -126,8 +172,8 @@ const updateContact = async (req, res) => {
 
     if (!contact) {
       return res.status(404).json({
-        status: 'error',
-        message: 'Contacto no encontrado'
+        status: "error",
+        message: "Contacto no encontrado",
       });
     }
 
@@ -139,16 +185,15 @@ const updateContact = async (req, res) => {
     await audience.save();
 
     return res.status(200).json({
-      status: 'success',
-      message: 'Contacto actualizado correctamente',
-      contact
+      status: "success",
+      message: "Contacto actualizado correctamente",
+      contact,
     });
-
   } catch (error) {
     console.error(error);
     return res.status(500).json({
-      status: 'error',
-      message: 'Error al actualizar el contacto'
+      status: "error",
+      message: "Error al actualizar el contacto",
     });
   }
 };
@@ -158,12 +203,15 @@ const deleteContact = async (req, res) => {
   try {
     const { audienceId, contactId } = req.params;
 
-    const audience = await Audience.findOne({ _id: audienceId, userId: req.user.id });
+    const audience = await Audience.findOne({
+      _id: audienceId,
+      userId: req.user.id,
+    });
 
     if (!audience) {
       return res.status(404).json({
-        status: 'error',
-        message: 'Audiencia no encontrada'
+        status: "error",
+        message: "Audiencia no encontrada",
       });
     }
 
@@ -171,8 +219,8 @@ const deleteContact = async (req, res) => {
 
     if (!contact) {
       return res.status(404).json({
-        status: 'error',
-        message: 'Contacto no encontrado'
+        status: "error",
+        message: "Contacto no encontrado",
       });
     }
 
@@ -180,23 +228,23 @@ const deleteContact = async (req, res) => {
     await audience.save();
 
     return res.status(200).json({
-      status: 'success',
-      message: 'Contacto eliminado correctamente'
+      status: "success",
+      message: "Contacto eliminado correctamente",
     });
-
   } catch (error) {
     console.error(error);
     return res.status(500).json({
-      status: 'error',
-      message: 'Error al eliminar el contacto'
+      status: "error",
+      message: "Error al eliminar el contacto",
     });
   }
 };
 
 module.exports = {
   addContact,
-  getContacts,
+  getContactsByAudience,
   getContactById,
   updateContact,
-  deleteContact
+  deleteContact,
+  getContactsByUser,
 };

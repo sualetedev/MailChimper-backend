@@ -58,7 +58,7 @@ router.post('/:audienceId/add', protect, contactController.addContact);
  *       200:
  *         description: Listado de contactos
  */
-router.get('/:audienceId', protect, contactController.getContacts);
+router.get('/:audienceId', check.auth, contactController.getContactsByAudience);
 
 /**
  * @swagger
@@ -82,7 +82,7 @@ router.get('/:audienceId', protect, contactController.getContacts);
  *       200:
  *         description: Contacto encontrado
  */
-router.get('/:audienceId/:contactId', protect, contactController.getContactById);
+router.get('/:audienceId/:contactId', check.auth, contactController.getContactById);
 
 /**
  * @swagger
@@ -122,7 +122,7 @@ router.get('/:audienceId/:contactId', protect, contactController.getContactById)
  *       200:
  *         description: Contacto actualizado
  */
-router.put('/:audienceId/:contactId', protect, contactController.updateContact);
+router.put('/:audienceId/:contactId', check.auth, contactController.updateContact);
 
 /**
  * @swagger
@@ -146,7 +146,9 @@ router.put('/:audienceId/:contactId', protect, contactController.updateContact);
  *       200:
  *         description: Contacto eliminado
  */
-router.delete('/:audienceId/:contactId', protect, contactController.deleteContact);
+router.delete('/:audienceId/:contactId', check.auth, contactController.deleteContact);
+
+router.get('/getContactsByUser', check.auth , contactController.getContactsByUser)
 
 
 
