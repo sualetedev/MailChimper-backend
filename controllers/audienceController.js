@@ -41,7 +41,7 @@ const createAudience = async (req, res) => {
 const getAudience = async (req, res) => {
   try {
     const  userId  = req.user.id;
-    const audiences = await Audience.find({ userId: new mongoose.Types.ObjectId(userId) });
+    const audiences = await Audience.find({ userId: req.user.id}).populate('contacts');
     if (!audiences) {
       return res.status(404).send({
         status: "error",

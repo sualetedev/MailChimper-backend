@@ -12,7 +12,7 @@ const audienceSchema = new mongoose.Schema({
     type: String,
      required: true 
     },
-  contacts: [contactSchema]
+  contacts: [{type: mongoose.Schema.Types.ObjectId, ref:'Contact'}]
 }, { timestamps: true });
 
 module.exports = model('Audience', audienceSchema);

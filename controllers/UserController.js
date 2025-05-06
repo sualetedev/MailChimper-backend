@@ -27,7 +27,7 @@ const register = async (req, res) => {
 
     const user = new User({
       name,
-      email: email.toLowerCase,
+      email: email.toLowerCase().trim(),
       password: passwordHashed,
     });
 
