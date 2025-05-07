@@ -12,7 +12,7 @@ const templateSchema = new mongoose.Schema({
   content: { 
     type: Object, 
     required: true 
-} // Guarda el JSON del editor drag-and-drop
+} 
 },
  {
      timestamps: true 

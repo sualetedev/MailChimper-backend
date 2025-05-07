@@ -44,7 +44,7 @@ router.post('/createTemplate', check.auth, templateController.createTemplate);
  */
 
 router.get('/getTemplates', check.auth, templateController.getTemplates);
-router.get('/getTemplateById/:id'. check.auth, templateController.getTemplateById);
+router.get('/getTemplateById/:id', check.auth, templateController.getTemplateById);
 router.put('/updateTemplate/:id', check.auth, templateController.updateTemplate);
 router.delete('/deleteTemplate/:id', check.auth, templateController.deleteTemplate);
 
