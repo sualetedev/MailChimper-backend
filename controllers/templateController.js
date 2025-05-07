@@ -1,4 +1,5 @@
 const Template = require("../models/Template");
+const mongoose = require("mongoose");
 
 const createTemplate = async (req, res) => {
   try {
@@ -32,9 +33,31 @@ const createTemplate = async (req, res) => {
   }
 };
 
-const getTemplates = async (req, res) => {
+const getPublicTemplates = async (req, res) => {
+  const publicId = "680f42a97b4cc3f43fe5d5c8";
   try {
-    const templates = await Template.find();
+    const templates = await Template.find({
+      userId: publicId});
+
+    return res.status(200).send({
+      status: "success",
+      message: "Templates publicos obtenidos correctamente",
+      templates,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({
+      status: "error",
+      message: "Error en el getTemplates",
+    });
+  }
+};
+
+
+const getTemplates = async (req, res) => {
+  const userId = req.user.id;
+  try {
+    const templates = await Template.find({userId: userId});
 
     return res.status(200).send({
       status: "success",
@@ -50,11 +73,11 @@ const getTemplates = async (req, res) => {
   }
 };
 
+
 const getTemplateById = async (req, res) => {
-  const userId = req.user.id;
   const templateId = req.params.id;
   try {
-    const template = await Template.findOne({ user: userId, _id: templateId });
+    const template = await Template.findOne({_id: templateId });
     if (!template) {
       return res.status(404).send({
         status: "error",
@@ -82,7 +105,7 @@ const updateTemplate = async (req, res) => {
 
   try {
     const template = await Template.findOneAndUpdate(
-      { user: userId, _id: templateId },
+      { userId: userId, _id: templateId },
       { name, content },
       { new: true }
     );
@@ -112,7 +135,7 @@ const deleteTemplate = async (req, res) => {
     const templateId = req.params.id;
 
     const templateDeleted = await Template.findOneAndDelete({
-      user: userId,
+      userId: userId,
       _id: templateId,
     });
     if (!templateDeleted) {
@@ -136,8 +159,9 @@ const deleteTemplate = async (req, res) => {
 
 module.exports = {
   createTemplate,
-  getTemplates,
+  getPublicTemplates,
   getTemplateById,
   updateTemplate,
   deleteTemplate,
+  getTemplates,
 };

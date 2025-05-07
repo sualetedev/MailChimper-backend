@@ -7,6 +7,7 @@ const AudienceRoutes = require("./routes/audience");
 const CampaignRoutes = require("./routes/campaign");
 const ContactRoutes = require("./routes/contact");
 const TemplateRoutes = require("./routes/template");
+const SendRoutes = require("./routes/send")
 
 //Instanciamos swagger
 const swaggerJsdoc = require("swagger-jsdoc");
@@ -53,6 +54,7 @@ app.use("/api/audience", AudienceRoutes);
 app.use("/api/campaign", CampaignRoutes);
 app.use("/api/contact", ContactRoutes);
 app.use("/api/templates", TemplateRoutes);
+app.use("/api/send", SendRoutes);
 
 app.listen(port, () => {
   console.log("Servidor corriendo en el puerto", port);
