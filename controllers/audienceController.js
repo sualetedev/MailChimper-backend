@@ -86,33 +86,6 @@ const getAudienceById = async (req, res) => {
   }
 };
 
-const updateAudience = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { name, contacts } = req.body;
-    const Audience = await Audience.findOneAndUpdate(
-      { _id: id, userId: req.user.id },
-      { name, contacts },
-      { new: true }
-    );
-
-    if (!Audience) {
-        return res.status(404).send({
-            status: 'error',
-            message: ''
-        })
-    }
-
-
-
-  } catch (error) {
-    console.error(error);
-    return res.status(500).send({
-      status: "error",
-      message: " Error en el updateAudience",
-    });
-  }
-};
 
 const deleteAudience = async (req, res) => {
   try{
@@ -145,7 +118,6 @@ const deleteAudience = async (req, res) => {
 module.exports = {
   createAudience,
   getAudience,
-  updateAudience,
   getAudienceById,
   deleteAudience,
 };

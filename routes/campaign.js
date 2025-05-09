@@ -120,6 +120,10 @@ router.put('/updateCampaign/:id', check.auth, CampaignController.updateCampaign)
  */
 router.delete('/deleteCampaign/:id', check.auth, CampaignController.deleteCampaign);
 
+router.get('/clickCampaign', CampaignController.ClickCampaign);
+
+router.put('/updatehtml/:id', check.auth, CampaignController.updateHtml);
+
 
 
 

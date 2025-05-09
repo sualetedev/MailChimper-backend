@@ -3,9 +3,12 @@ const Campaign = require("../models/Camplaign");
 const createCampaign = async (req, res) => {
   try {
     const userId = req.user.id;
-    const { title, subject, content, audienceId } = req.body;
+    const { templateId, subject, audienceIds, sendDate, html } = req.body;
 
-    if (!title || !subject || !content || !audienceId) {
+
+    if (!templateId || !subject || !audienceIds || audienceIds.length === 0) {
+
+
       return res.status(400).json({
         status: "error",
         message: "Faltan datos por enviar",
@@ -14,11 +17,11 @@ const createCampaign = async (req, res) => {
 
     const campaign = new Campaign({
       userId,
-      title,
+      templateId,
       subject,
-      content,
-      audienceId,
-      sent: false,
+      audienceIds,
+      sendDate: sendDate || new Date(),
+      html,
     });
 
     await campaign.save();
@@ -39,11 +42,11 @@ const createCampaign = async (req, res) => {
 const getCampaigns = async (req, res) => {
   try {
     const userId = req.user.id;
-    const campaigns = await Campaign.find({ userId });
+    const campaign = await Campaign.find({ userId }).populate("templateId", "name").populate("audienceIds", "name");
     return res.status(200).json({
       status: "success",
       message: "Campañas obtenidas correctamente",
-      campaigns,
+      campaign,
     });
   } catch (error) {
     console.error(error);
@@ -147,10 +150,82 @@ const deleteCampaign = async (req, res) => {
   }
 };
 
+const ClickCampaign = async (req,res) => {
+  const { campaignId } = req.query;
+  try { 
+
+  const campaign = await Campaign.findById(campaignId)
+
+  if(!campaign){
+    res.status(404).send({
+      status: "error",
+      message: "No existe la campaña",
+    })
+  }
+
+  campaign.clickRate = campaign.clickRate + 1;
+  campaign.save();
+
+  return res.status(200).send({
+    status: "success",
+    message: "Campaña clickada correctamente",
+  })
+  
+
+  } catch(error) {
+    console.error(error)
+    return res.status(500).send({
+      status: "error",
+      message: "Error en el ClickCampaign",
+    })
+  }
+}
+
+
+const updateHtml = async (req, res) => {
+  const { id } = req.params;
+  const { html } = req.body;
+
+  if (!html) {
+    return res.status(400).json({
+      status: "error",
+      message: "HTML faltante",
+    });
+  }
+
+  try {
+    const updated = await Campaign.findByIdAndUpdate(
+      id,
+      { html },
+      { new: true }
+    );
+
+    if (!updated) {
+      return res.status(404).send({
+        status: "error",
+        message: "Campaña no encontrada",
+      });
+    }
+
+    return res.status(200).send({
+      status: "success",
+      message: "HTML actualizado correctamente",
+      campaign: updated,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({
+      status: "error",
+      message: "Error en el UpdateHTML",
+    });
+  }
+};
 module.exports = {
   createCampaign,
   getCampaigns,
   getCampaignById,
   updateCampaign,
   deleteCampaign,
+  ClickCampaign,
+  updateHtml,
 };

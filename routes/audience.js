@@ -76,34 +76,6 @@ router.get('/getAudience', check.auth, AudienceController.getAudience);
 router.get('/getAudienceById/:id', check.auth, AudienceController.getAudienceById);
 /**
  * @swagger
- * /audience/updateAudience/{id}:
- *   put:
- *     summary: Actualizar una audiencia
- *     tags:
- *       - Audience
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *     requestBody:
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               name:
- *                 type: string
- *               contacts:
- *                 type: array
- *     responses:
- *       200:
- *         description: Audiencia actualizada
- */
-router.put('/updateAudience/:id', check.auth, AudienceController.updateAudience);
-/**
- * @swagger
  * /audience/{id}:
  *   delete:
  *     summary: Eliminar una audiencia
