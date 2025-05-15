@@ -1,0 +1,871 @@
+[{
+  "_id": {
+    "$oid": "6819fac350cf7136cad150a4"
+  },
+  "userId": {
+    "$oid": "680f42a97b4cc3f43fe5d5c8"
+  },
+  "name": "Bienvenida",
+  "content": {
+    "body": {
+      "rows": [
+        {
+          "cells": [
+            1
+          ],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "text",
+                  "values": {
+                    "text": "<p style='font-size: 18px;'>¡Bienvenido a MailChimper! Esperamos que disfrutes creando campañas efectivas.</p>",
+                    "textAlign": "left",
+                    "lineHeight": "140%",
+                    "padding": "20px"
+                  }
+                }
+              ],
+              "values": {}
+            }
+          ],
+          "values": {
+            "backgroundColor": "#ffffff",
+            "padding": "20px"
+          }
+        }
+      ],
+      "values": {
+        "backgroundColor": "#f0f0f0"
+      }
+    },
+    "schemaVersion": 6
+  },
+  "createdAt": {
+    "$date": "2025-05-06T12:04:19.887Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-06T12:04:19.887Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681b7ab15a1d458a73b71236"
+  },
+  "userId": {
+    "$oid": "680f42a97b4cc3f43fe5d5c8"
+  },
+  "name": "Bienvenida Simple",
+  "content": {
+    "schemaVersion": 6,
+    "body": {
+      "rows": [
+        {
+          "cells": [
+            1
+          ],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "text",
+                  "values": {
+                    "text": "<p>¡Hola y bienvenido a nuestra comunidad!</p>",
+                    "fontSize": "18px",
+                    "lineHeight": "140%"
+                  }
+                }
+              ],
+              "values": {}
+            }
+          ],
+          "values": {
+            "backgroundColor": "#ffffff",
+            "padding": "20px"
+          }
+        }
+      ],
+      "values": {}
+    }
+  },
+  "createdAt": {
+    "$date": "2025-05-07T15:22:25.785Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-07T15:22:25.785Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "681b7ab15a1d458a73b71237"
+  },
+  "userId": {
+    "$oid": "680f42a97b4cc3f43fe5d5c8"
+  },
+  "name": "Newsletter Informativa",
+  "content": {
+    "schemaVersion": 6,
+    "body": {
+      "rows": [
+        {
+          "cells": [
+            1
+          ],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "text",
+                  "values": {
+                    "text": "<h2>Novedades del mes</h2><p>Descubre las últimas noticias y mejoras.</p>"
+                  }
+                }
+              ],
+              "values": {}
+            }
+          ],
+          "values": {
+            "backgroundColor": "#f0f0f0",
+            "padding": "30px"
+          }
+        }
+      ],
+      "values": {}
+    }
+  },
+  "createdAt": {
+    "$date": "2025-05-07T15:22:25.785Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-07T15:22:25.785Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "681b7ab15a1d458a73b71238"
+  },
+  "userId": {
+    "$oid": "680f42a97b4cc3f43fe5d5c8"
+  },
+  "name": "Oferta Especial",
+  "content": {
+    "schemaVersion": 6,
+    "body": {
+      "rows": [
+        {
+          "cells": [
+            1
+          ],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "text",
+                  "values": {
+                    "text": "<h1>¡Solo por hoy!</h1><p>Obtén un 20% de descuento usando el código <strong>HOY20</strong>.</p>"
+                  }
+                }
+              ],
+              "values": {}
+            }
+          ],
+          "values": {
+            "backgroundColor": "#fff3cd",
+            "padding": "20px"
+          }
+        }
+      ],
+      "values": {}
+    }
+  },
+  "createdAt": {
+    "$date": "2025-05-07T15:22:25.785Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-07T15:22:25.785Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "681b7ab15a1d458a73b71239"
+  },
+  "userId": {
+    "$oid": "680f42a97b4cc3f43fe5d5c8"
+  },
+  "name": "Invitación a evento",
+  "content": {
+    "schemaVersion": 6,
+    "body": {
+      "rows": [
+        {
+          "cells": [
+            1
+          ],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "text",
+                  "values": {
+                    "text": "<h2>Estás invitado</h2><p>Únete a nuestro evento exclusivo el próximo jueves a las 19:00.</p>"
+                  }
+                }
+              ],
+              "values": {}
+            }
+          ],
+          "values": {
+            "backgroundColor": "#e8f5e9",
+            "padding": "25px"
+          }
+        }
+      ],
+      "values": {}
+    }
+  },
+  "createdAt": {
+    "$date": "2025-05-07T15:22:25.785Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-07T15:22:25.785Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "681b7ab15a1d458a73b7123a"
+  },
+  "userId": {
+    "$oid": "680f42a97b4cc3f43fe5d5c8"
+  },
+  "name": "Recordatorio de suscripción",
+  "content": {
+    "schemaVersion": 6,
+    "body": {
+      "rows": [
+        {
+          "cells": [
+            1
+          ],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "text",
+                  "values": {
+                    "text": "<p>No olvides renovar tu suscripción antes del <strong>15 de mayo</strong>.</p>"
+                  }
+                }
+              ],
+              "values": {}
+            }
+          ],
+          "values": {
+            "backgroundColor": "#fce4ec",
+            "padding": "20px"
+          }
+        }
+      ],
+      "values": {}
+    }
+  },
+  "createdAt": {
+    "$date": "2025-05-07T15:22:25.785Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-07T15:22:25.785Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "681dbb6ff81a172c2edc7e1b"
+  },
+  "userId": {
+    "$oid": "681b33652b682215d35301d8"
+  },
+  "name": "Recordatorio de suscripción(copia)",
+  "content": {
+    "counters": {
+      "u_content_text": 1,
+      "u_column": 1,
+      "u_row": 1,
+      "u_content_html": 1
+    },
+    "body": {
+      "id": "sVtTldu1fZ",
+      "rows": [
+        {
+          "id": "MJ5PtVopHD",
+          "cells": [
+            1
+          ],
+          "columns": [
+            {
+              "id": "l8oVK8ZKns",
+              "contents": [
+                {
+                  "id": "Xy4OAziZoM",
+                  "type": "text",
+                  "values": {
+                    "containerPadding": "10px",
+                    "anchor": "",
+                    "fontSize": "14px",
+                    "textAlign": "left",
+                    "lineHeight": "140%",
+                    "linkStyle": {
+                      "inherit": true,
+                      "linkColor": "#0000ee",
+                      "linkHoverColor": "#0000ee",
+                      "linkUnderline": true,
+                      "linkHoverUnderline": true
+                    },
+                    "hideDesktop": false,
+                    "displayCondition": null,
+                    "_styleGuide": null,
+                    "_meta": {
+                      "htmlID": "u_content_text_1",
+                      "htmlClassNames": "u_content_text"
+                    },
+                    "selectable": true,
+                    "draggable": true,
+                    "duplicatable": true,
+                    "deletable": true,
+                    "hideable": true,
+                    "locked": false,
+                    "text": "<p>No olvides renovar tu suscripción antes del <strong>15 de mayo</strong>.</p>"
+                  },
+                  "hasDeprecatedFontControls": true
+                },
+                {
+                  "id": "XVqFcUaTGd",
+                  "type": "html",
+                  "values": {
+                    "html": "<button onclick=clickrate()> Subscribete </button>",
+                    "displayCondition": null,
+                    "_styleGuide": null,
+                    "containerPadding": "10px",
+                    "anchor": "",
+                    "_meta": {
+                      "htmlID": "u_content_html_1",
+                      "htmlClassNames": "u_content_html"
+                    },
+                    "selectable": true,
+                    "draggable": true,
+                    "duplicatable": true,
+                    "deletable": true,
+                    "hideable": true,
+                    "locked": false
+                  }
+                }
+              ],
+              "values": {
+                "_meta": {
+                  "htmlID": "u_column_1",
+                  "htmlClassNames": "u_column"
+                },
+                "deletable": true
+              }
+            }
+          ],
+          "values": {
+            "displayCondition": null,
+            "columns": false,
+            "_styleGuide": null,
+            "backgroundColor": "#fce4ec",
+            "columnsBackgroundColor": "",
+            "backgroundImage": {
+              "url": "",
+              "fullWidth": true,
+              "repeat": "no-repeat",
+              "size": "custom",
+              "position": "center"
+            },
+            "padding": "20px",
+            "anchor": "",
+            "hideDesktop": false,
+            "_meta": {
+              "htmlID": "u_row_1",
+              "htmlClassNames": "u_row"
+            },
+            "selectable": true,
+            "draggable": true,
+            "duplicatable": true,
+            "deletable": true,
+            "hideable": true,
+            "locked": false
+          }
+        }
+      ],
+      "headers": [],
+      "footers": [],
+      "values": {
+        "_styleGuide": null,
+        "popupPosition": "center",
+        "popupWidth": "600px",
+        "popupHeight": "auto",
+        "borderRadius": "10px",
+        "contentAlign": "center",
+        "contentVerticalAlign": "center",
+        "contentWidth": "500px",
+        "fontFamily": {
+          "label": "Arial",
+          "value": "arial,helvetica,sans-serif"
+        },
+        "textColor": "#000000",
+        "popupBackgroundColor": "#FFFFFF",
+        "popupBackgroundImage": {
+          "url": "",
+          "fullWidth": true,
+          "repeat": "no-repeat",
+          "size": "cover",
+          "position": "center"
+        },
+        "popupOverlay_backgroundColor": "rgba(0, 0, 0, 0.1)",
+        "popupCloseButton_position": "top-right",
+        "popupCloseButton_backgroundColor": "#DDDDDD",
+        "popupCloseButton_iconColor": "#000000",
+        "popupCloseButton_borderRadius": "0px",
+        "popupCloseButton_margin": "0px",
+        "popupCloseButton_action": {
+          "name": "close_popup",
+          "attrs": {
+            "onClick": "document.querySelector('.u-popup-container').style.display = 'none';"
+          }
+        },
+        "backgroundColor": "#F7F8F9",
+        "preheaderText": "",
+        "linkStyle": {
+          "body": true,
+          "linkColor": "#0000ee",
+          "linkHoverColor": "#0000ee",
+          "linkUnderline": true,
+          "linkHoverUnderline": true
+        },
+        "backgroundImage": {
+          "url": "",
+          "fullWidth": true,
+          "repeat": "no-repeat",
+          "size": "custom",
+          "position": "center"
+        },
+        "_meta": {
+          "htmlID": "u_body",
+          "htmlClassNames": "u_body"
+        }
+      }
+    },
+    "schemaVersion": 21
+  },
+  "createdAt": {
+    "$date": "2025-05-09T08:23:11.533Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-09T08:23:11.533Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681dd4485f9c3cfec6476e0d"
+  },
+  "userId": {
+    "$oid": "681b33652b682215d35301d8"
+  },
+  "name": "Recordatorio de suscripción(copia)(copia)",
+  "content": {
+    "counters": {
+      "u_content_text": 1,
+      "u_column": 1,
+      "u_row": 1,
+      "u_content_html": 1,
+      "u_content_button": 1
+    },
+    "body": {
+      "id": "sVtTldu1fZ",
+      "rows": [
+        {
+          "id": "MJ5PtVopHD",
+          "cells": [
+            1
+          ],
+          "columns": [
+            {
+              "id": "l8oVK8ZKns",
+              "contents": [
+                {
+                  "id": "Xy4OAziZoM",
+                  "type": "text",
+                  "values": {
+                    "containerPadding": "10px",
+                    "anchor": "",
+                    "fontSize": "14px",
+                    "textAlign": "left",
+                    "lineHeight": "140%",
+                    "linkStyle": {
+                      "inherit": true,
+                      "linkColor": "#0000ee",
+                      "linkHoverColor": "#0000ee",
+                      "linkUnderline": true,
+                      "linkHoverUnderline": true
+                    },
+                    "hideDesktop": false,
+                    "displayCondition": null,
+                    "_styleGuide": null,
+                    "_meta": {
+                      "htmlID": "u_content_text_1",
+                      "htmlClassNames": "u_content_text"
+                    },
+                    "selectable": true,
+                    "draggable": true,
+                    "duplicatable": true,
+                    "deletable": true,
+                    "hideable": true,
+                    "locked": false,
+                    "text": "<p>No olvides renovar tu suscripción antes del <strong>15 de mayo</strong>.</p>"
+                  },
+                  "hasDeprecatedFontControls": true
+                },
+                {
+                  "id": "XVqFcUaTGd",
+                  "type": "html",
+                  "values": {
+                    "html": "<button onclick=clickrate()> Subscribete </button>",
+                    "hideDesktop": false,
+                    "displayCondition": null,
+                    "_styleGuide": null,
+                    "containerPadding": "10px",
+                    "anchor": "",
+                    "_meta": {
+                      "htmlID": "u_content_html_1",
+                      "htmlClassNames": "u_content_html"
+                    },
+                    "selectable": true,
+                    "draggable": true,
+                    "duplicatable": true,
+                    "deletable": true,
+                    "hideable": true,
+                    "locked": false
+                  }
+                },
+                {
+                  "id": "bBBBcuIlzj",
+                  "type": "button",
+                  "values": {
+                    "href": {
+                      "name": "web",
+                      "attrs": {
+                        "href": "{{href}}",
+                        "target": "{{target}}"
+                      },
+                      "values": {
+                        "href": "http://localhost:3900/api/campaign/clickTrack?campaignId={{campaignId}}",
+                        "target": "_blank"
+                      }
+                    },
+                    "buttonColors": {
+                      "color": "#FFFFFF",
+                      "backgroundColor": "#3AAEE0",
+                      "hoverColor": "#FFFFFF",
+                      "hoverBackgroundColor": "#3AAEE0"
+                    },
+                    "size": {
+                      "autoWidth": true,
+                      "width": "100%"
+                    },
+                    "fontSize": "14px",
+                    "lineHeight": "120%",
+                    "textAlign": "center",
+                    "padding": "10px 20px",
+                    "borderRadius": "4px",
+                    "displayCondition": null,
+                    "_styleGuide": null,
+                    "containerPadding": "10px",
+                    "anchor": "",
+                    "_meta": {
+                      "htmlID": "u_content_button_1",
+                      "htmlClassNames": "u_content_button"
+                    },
+                    "selectable": true,
+                    "draggable": true,
+                    "duplicatable": true,
+                    "deletable": true,
+                    "hideable": true,
+                    "locked": false,
+                    "text": "<span style=\"line-height: 16.8px;\">Button Text</span>",
+                    "calculatedWidth": 110,
+                    "calculatedHeight": 37
+                  }
+                }
+              ],
+              "values": {
+                "_meta": {
+                  "htmlID": "u_column_1",
+                  "htmlClassNames": "u_column"
+                },
+                "deletable": true
+              }
+            }
+          ],
+          "values": {
+            "displayCondition": null,
+            "columns": false,
+            "_styleGuide": null,
+            "backgroundColor": "#fce4ec",
+            "columnsBackgroundColor": "",
+            "backgroundImage": {
+              "url": "",
+              "fullWidth": true,
+              "repeat": "no-repeat",
+              "size": "custom",
+              "position": "center"
+            },
+            "padding": "20px",
+            "anchor": "",
+            "hideDesktop": false,
+            "_meta": {
+              "htmlID": "u_row_1",
+              "htmlClassNames": "u_row"
+            },
+            "selectable": true,
+            "draggable": true,
+            "duplicatable": true,
+            "deletable": true,
+            "hideable": true,
+            "locked": false
+          }
+        }
+      ],
+      "headers": [],
+      "footers": [],
+      "values": {
+        "_styleGuide": null,
+        "popupPosition": "center",
+        "popupWidth": "600px",
+        "popupHeight": "auto",
+        "borderRadius": "10px",
+        "contentAlign": "center",
+        "contentVerticalAlign": "center",
+        "contentWidth": "500px",
+        "fontFamily": {
+          "label": "Arial",
+          "value": "arial,helvetica,sans-serif"
+        },
+        "textColor": "#000000",
+        "popupBackgroundColor": "#FFFFFF",
+        "popupBackgroundImage": {
+          "url": "",
+          "fullWidth": true,
+          "repeat": "no-repeat",
+          "size": "cover",
+          "position": "center"
+        },
+        "popupOverlay_backgroundColor": "rgba(0, 0, 0, 0.1)",
+        "popupCloseButton_position": "top-right",
+        "popupCloseButton_backgroundColor": "#DDDDDD",
+        "popupCloseButton_iconColor": "#000000",
+        "popupCloseButton_borderRadius": "0px",
+        "popupCloseButton_margin": "0px",
+        "popupCloseButton_action": {
+          "name": "close_popup",
+          "attrs": {
+            "onClick": "document.querySelector('.u-popup-container').style.display = 'none';"
+          }
+        },
+        "backgroundColor": "#F7F8F9",
+        "preheaderText": "",
+        "linkStyle": {
+          "body": true,
+          "linkColor": "#0000ee",
+          "linkHoverColor": "#0000ee",
+          "linkUnderline": true,
+          "linkHoverUnderline": true
+        },
+        "backgroundImage": {
+          "url": "",
+          "fullWidth": true,
+          "repeat": "no-repeat",
+          "size": "custom",
+          "position": "center"
+        },
+        "_meta": {
+          "htmlID": "u_body",
+          "htmlClassNames": "u_body"
+        }
+      }
+    },
+    "schemaVersion": 21
+  },
+  "createdAt": {
+    "$date": "2025-05-09T10:09:12.853Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-09T10:09:12.853Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681de4eaa947580643075e32"
+  },
+  "userId": {
+    "$oid": "681de497a947580643075df4"
+  },
+  "name": "Invitación a evento(copia)",
+  "content": {
+    "counters": {
+      "u_content_text": 1,
+      "u_column": 1,
+      "u_row": 1
+    },
+    "body": {
+      "id": "oUZEaXP4cP",
+      "rows": [
+        {
+          "id": "B6-gywJTAf",
+          "cells": [
+            1
+          ],
+          "columns": [
+            {
+              "id": "fqAIRDNnly",
+              "contents": [
+                {
+                  "id": "pEZuE6V1il",
+                  "type": "text",
+                  "values": {
+                    "containerPadding": "10px",
+                    "anchor": "",
+                    "fontSize": "14px",
+                    "textAlign": "left",
+                    "lineHeight": "140%",
+                    "linkStyle": {
+                      "inherit": true,
+                      "linkColor": "#0000ee",
+                      "linkHoverColor": "#0000ee",
+                      "linkUnderline": true,
+                      "linkHoverUnderline": true
+                    },
+                    "hideDesktop": false,
+                    "displayCondition": null,
+                    "_styleGuide": null,
+                    "_meta": {
+                      "htmlID": "u_content_text_1",
+                      "htmlClassNames": "u_content_text"
+                    },
+                    "selectable": true,
+                    "draggable": true,
+                    "duplicatable": true,
+                    "deletable": true,
+                    "hideable": true,
+                    "locked": false,
+                    "text": "<h2>Estás invitado</h2><p>Únete a nuestro evento exclusivo el próximo jueves a las 19:00.</p>"
+                  },
+                  "hasDeprecatedFontControls": true
+                }
+              ],
+              "values": {
+                "_meta": {
+                  "htmlID": "u_column_1",
+                  "htmlClassNames": "u_column"
+                },
+                "deletable": true
+              }
+            }
+          ],
+          "values": {
+            "displayCondition": null,
+            "columns": false,
+            "_styleGuide": null,
+            "backgroundColor": "#e8f5e9",
+            "columnsBackgroundColor": "",
+            "backgroundImage": {
+              "url": "",
+              "fullWidth": true,
+              "repeat": "no-repeat",
+              "size": "custom",
+              "position": "center"
+            },
+            "padding": "25px",
+            "anchor": "",
+            "hideDesktop": false,
+            "_meta": {
+              "htmlID": "u_row_1",
+              "htmlClassNames": "u_row"
+            },
+            "selectable": true,
+            "draggable": true,
+            "duplicatable": true,
+            "deletable": true,
+            "hideable": true,
+            "locked": false
+          }
+        }
+      ],
+      "headers": [],
+      "footers": [],
+      "values": {
+        "_styleGuide": null,
+        "popupPosition": "center",
+        "popupWidth": "600px",
+        "popupHeight": "auto",
+        "borderRadius": "10px",
+        "contentAlign": "center",
+        "contentVerticalAlign": "center",
+        "contentWidth": "500px",
+        "fontFamily": {
+          "label": "Arial",
+          "value": "arial,helvetica,sans-serif"
+        },
+        "textColor": "#000000",
+        "popupBackgroundColor": "#FFFFFF",
+        "popupBackgroundImage": {
+          "url": "",
+          "fullWidth": true,
+          "repeat": "no-repeat",
+          "size": "cover",
+          "position": "center"
+        },
+        "popupOverlay_backgroundColor": "rgba(0, 0, 0, 0.1)",
+        "popupCloseButton_position": "top-right",
+        "popupCloseButton_backgroundColor": "#DDDDDD",
+        "popupCloseButton_iconColor": "#000000",
+        "popupCloseButton_borderRadius": "0px",
+        "popupCloseButton_margin": "0px",
+        "popupCloseButton_action": {
+          "name": "close_popup",
+          "attrs": {
+            "onClick": "document.querySelector('.u-popup-container').style.display = 'none';"
+          }
+        },
+        "backgroundColor": "#F7F8F9",
+        "preheaderText": "",
+        "linkStyle": {
+          "body": true,
+          "linkColor": "#0000ee",
+          "linkHoverColor": "#0000ee",
+          "linkUnderline": true,
+          "linkHoverUnderline": true
+        },
+        "backgroundImage": {
+          "url": "",
+          "fullWidth": true,
+          "repeat": "no-repeat",
+          "size": "custom",
+          "position": "center"
+        },
+        "_meta": {
+          "htmlID": "u_body",
+          "htmlClassNames": "u_body"
+        }
+      }
+    },
+    "schemaVersion": 21
+  },
+  "createdAt": {
+    "$date": "2025-05-09T11:20:10.040Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-09T11:20:10.040Z"
+  },
+  "__v": 0
+}]
