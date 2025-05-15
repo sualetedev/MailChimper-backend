@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:3900
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "3900:3900"
+    expose:
+      - "3900"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/mailchimper
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+
+  mongo-seed:
+    image: mongo:6
+    depends_on:
+      - mongo
+    volumes:
+      - ./backend/mongo-seed:/seed
+    entrypoint:
+      - bash
+      - -c
+      - |
+        sleep 5 && \
+        mongoimport --host mongo --db mailchimper --collection templates --file /seed/templates.json --jsonArray
+
+volumes:
+  mongo_data:
