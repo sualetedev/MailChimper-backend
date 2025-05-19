@@ -2,7 +2,12 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("../services/jwt");
 
-// Registro de usuario
+const secPassword = (password) => {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+  return regex.test(password);
+};
+
+
 const register = async (req, res) => {
   try {
     let { name, email, password } = req.body;
@@ -13,6 +18,13 @@ const register = async (req, res) => {
         status: "error",
       });
     }
+
+    if (!secPassword(password)) {
+      return res.status(400).send({
+        status: "error",
+      })
+    }
+
 
 
     const existingUser = await User.findOne({ email });
@@ -46,7 +58,6 @@ const register = async (req, res) => {
   }
 };
 
-// Login de usuario
 const login = async (req, res) => {
   try {
     let { email, password } = req.body;
