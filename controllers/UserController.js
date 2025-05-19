@@ -7,7 +7,6 @@ const secPassword = (password) => {
   return regex.test(password);
 };
 
-
 const register = async (req, res) => {
   try {
     let { name, email, password } = req.body;
@@ -22,10 +21,8 @@ const register = async (req, res) => {
     if (!secPassword(password)) {
       return res.status(400).send({
         status: "error",
-      })
+      });
     }
-
-
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -107,32 +104,29 @@ const login = async (req, res) => {
   }
 };
 
-
 const getProfile = async (req, res) => {
-    try {
-        let { id } = req.params;
-        const user = await User.findById(id).select('-password');
+  try {
+    let { id } = req.params;
+    const user = await User.findById(id).select("-password");
 
-        if (!user) {
-            return res.status(404).json({
-                message: 'Usuario no encontrado.',
-                status: 'error',
-            });
-        }
-
-        return res.status(200).json({
-            status: 'success',
-            user,
-        });
-
-    } catch (error) {
-        return res.status(500).json({
-            message: error.message || 'Error en el servidor.',
-            status: 'error',
-        });
+    if (!user) {
+      return res.status(404).json({
+        message: "Usuario no encontrado.",
+        status: "error",
+      });
     }
-};
 
+    return res.status(200).json({
+      status: "success",
+      user,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message || "Error en el servidor.",
+      status: "error",
+    });
+  }
+};
 
 module.exports = {
   register,
