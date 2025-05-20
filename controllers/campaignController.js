@@ -5,10 +5,7 @@ const createCampaign = async (req, res) => {
     const userId = req.user.id;
     const { templateId, subject, audienceIds, sendDate, html } = req.body;
 
-
     if (!templateId || !subject || !audienceIds || audienceIds.length === 0) {
-
-
       return res.status(400).json({
         status: "error",
         message: "Faltan datos por enviar",
@@ -42,7 +39,9 @@ const createCampaign = async (req, res) => {
 const getCampaigns = async (req, res) => {
   try {
     const userId = req.user.id;
-    const campaign = await Campaign.find({ userId }).populate("templateId", "name").populate("audienceIds", "name");
+    const campaign = await Campaign.find({ userId })
+      .populate("templateId", "name")
+      .populate("audienceIds", "name");
     return res.status(200).json({
       status: "success",
       message: "Campañas obtenidas correctamente",
@@ -150,37 +149,33 @@ const deleteCampaign = async (req, res) => {
   }
 };
 
-const ClickCampaign = async (req,res) => {
+const ClickCampaign = async (req, res) => {
   const { campaignId } = req.query;
-  try { 
+  try {
+    const campaign = await Campaign.findById(campaignId);
 
-  const campaign = await Campaign.findById(campaignId)
+    if (!campaign) {
+      return res.status(404).send({
+        status: "error",
+        message: "No existe la campaña",
+      });
+    }
 
-  if(!campaign){
-    res.status(404).send({
-      status: "error",
-      message: "No existe la campaña",
-    })
-  }
+    campaign.clickRate = (campaign.clickRate || 0) + 1;
+    await campaign.save();
 
-  campaign.clickRate = campaign.clickRate + 1;
-  campaign.save();
-
-  return res.status(200).send({
-    status: "success",
-    message: "Campaña clickada correctamente",
-  })
-  
-
-  } catch(error) {
-    console.error(error)
+    return res.status(200).send({
+      status: "success",
+      message: "Campaña clickada correctamente",
+    });
+  } catch (error) {
+    console.error(error);
     return res.status(500).send({
       status: "error",
       message: "Error en el ClickCampaign",
-    })
+    });
   }
-}
-
+};
 
 const updateHtml = async (req, res) => {
   const { id } = req.params;

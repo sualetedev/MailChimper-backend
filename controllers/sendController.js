@@ -25,7 +25,6 @@ const sendToAudience = async (req, res) => {
 
     return res.status(200).send({
       status: "success",
-      message: "Enviado correctamente",
     });
   } catch (error) {
     console.error("Error al enviar correo:", error);
