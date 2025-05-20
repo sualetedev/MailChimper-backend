@@ -18,8 +18,11 @@ services:
       - "3900"
     environment:
       - MONGO_URI=mongodb://mongo:27017/mailchimper
+      - SMTP_HOST=mailhog
+      - SMTP_PORT=1025
     depends_on:
       - mongo
+      - mailhog
 
   mongo:
     image: mongo:6
@@ -41,5 +44,15 @@ services:
         sleep 5 && \
         mongoimport --host mongo --db mailchimper --collection templates --file /seed/templates.json --jsonArray
 
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
 volumes:
   mongo_data:
+
+networks:
+  default:
+    name: mailchimper-net
