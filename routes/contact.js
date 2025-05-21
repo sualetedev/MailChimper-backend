@@ -205,58 +205,9 @@ router.get("/:audienceId", check.auth, ContactController.getContactsByAudience);
  *         description: Error del servidor
  */
 router.get(
-  "/:audienceId/:contactId",
+  "/getContactById/:emailParams",
   check.auth,
   ContactController.getContactById
-);
-/**
- * @swagger
- * /api/contact/{audienceId}/{contactId}:
- *   put:
- *     summary: Actualizar un contacto dentro de una audiencia
- *     tags:
- *       - Contactos
- *     security:
- *       - bearerAuth: []
- *     parameters:
- *       - name: audienceId
- *         in: path
- *         required: true
- *         schema:
- *           type: string
- *       - name: contactId
- *         in: path
- *         required: true
- *         schema:
- *           type: string
- *     requestBody:
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               name:
- *                 type: string
- *               email:
- *                 type: string
- *               tags:
- *                 type: array
- *                 items:
- *                   type: string
- *               location:
- *                 type: string
- *     responses:
- *       200:
- *         description: Contacto actualizado correctamente
- *       404:
- *         description: Audiencia o contacto no encontrado
- *       500:
- *         description: Error del servidor
- */
-router.put(
-  "/:audienceId/:contactId",
-  check.auth,
-  ContactController.updateContact
 );
 /**
  * @swagger
@@ -291,5 +242,8 @@ router.delete(
   check.auth,
   ContactController.deleteContact
 );
+router.put(
+  "/updateContact/:emailParams", check.auth, ContactController.updateContact
+)
 
 module.exports = router;

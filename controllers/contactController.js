@@ -184,21 +184,12 @@ const getContactsByAudience = async (req, res) => {
 // Obtener un contacto concreto de una audiencia
 const getContactById = async (req, res) => {
   try {
-    const { audienceId, contactId } = req.params;
+    const { emailParams } = req.params;
 
-    const audience = await Audience.findOne({
-      _id: audienceId,
-      userId: req.user.id,
+    const contact = await Contact.findOne({
+      user: req.user.id,
+      email: emailParams,
     });
-
-    if (!audience) {
-      return res.status(404).json({
-        status: "error",
-        message: "Audiencia no encontrada",
-      });
-    }
-
-    const contact = audience.contacts.id(contactId);
 
     if (!contact) {
       return res.status(404).json({
@@ -206,7 +197,7 @@ const getContactById = async (req, res) => {
         message: "Contacto no encontrado",
       });
     }
-
+ 
     return res.status(200).json({
       status: "success",
       contact,
@@ -223,41 +214,30 @@ const getContactById = async (req, res) => {
 // Actualizar un contacto en una audiencia
 const updateContact = async (req, res) => {
   try {
-    const { audienceId, contactId } = req.params;
-    const { name, email, tags, location } = req.body;
+    const { emailParams } = req.params;
+    const { name, tags, location } = req.body;
 
-    const audience = await Audience.findOne({
-      _id: audienceId,
-      userId: req.user.id,
-    });
+    const updatedContact = await Contact.findOneAndUpdate({
+        user: req.user.id,
+        email: emailParams,
+      },
+      {
+        ...(name && { name }),
+        ...(tags && { tags }),
+        ...(location && { location }),
+      }
+    );
 
-    if (!audience) {
-      return res.status(404).json({
-        status: "error",
-        message: "Audiencia no encontrada",
-      });
-    }
-
-    const contact = audience.contacts.id(contactId);
-
-    if (!contact) {
+    if (!updatedContact) {
       return res.status(404).json({
         status: "error",
         message: "Contacto no encontrado",
       });
     }
-
-    if (name) contact.name = name;
-    if (email) contact.email = email;
-    if (tags) contact.tags = tags;
-    if (location) contact.location = location;
-
-    await audience.save();
-
     return res.status(200).json({
       status: "success",
       message: "Contacto actualizado correctamente",
-      contact,
+      updatedContact,
     });
   } catch (error) {
     console.error(error);
