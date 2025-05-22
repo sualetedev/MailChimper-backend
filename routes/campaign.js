@@ -235,5 +235,59 @@ router.get("/clickCampaign", CampaignController.ClickCampaign);
  *         description: Error del servidor
  */
 router.put("/updatehtml/:id", check.auth, CampaignController.updateHtml);
+/**
+ * @swagger
+ * /getCampaignsWithAudienceCounts:
+ *   get:
+ *     summary: Obtiene campañas del usuario junto con el conteo de contactos por audiencia
+ *     tags:
+ *       - Campaigns
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Lista de campañas con información básica y cantidad de contactos por audiencia
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: success
+ *                 message:
+ *                   type: string
+ *                   example: Campañas con audiencias y conteo obtenidas correctamente
+ *                 campaigns:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       _id:
+ *                         type: string
+ *                       subject:
+ *                         type: string
+ *                       clickRate:
+ *                         type: number
+ *                       audiences:
+ *                         type: array
+ *                         items:
+ *                           type: object
+ *                           properties:
+ *                             _id:
+ *                               type: string
+ *                             name:
+ *                               type: string
+ *                             contactCount:
+ *                               type: integer
+ *       401:
+ *         description: No autorizado - token inválido o no enviado
+ *       500:
+ *         description: Error del servidor al obtener campañas
+ */
+
+
+
+router.get("/getCampaignsWithAudienceCounts", check.auth, CampaignController.getCampaignsWithAudienceCounts);
 
 module.exports = router;

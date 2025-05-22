@@ -56,6 +56,48 @@ const getCampaigns = async (req, res) => {
   }
 };
 
+
+const getCampaignsWithAudienceCounts = async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    const campaigns = await Campaign.find({ userId })
+      .populate("templateId", "name")
+      .populate({
+        path: "audienceIds",
+        select: "name contacts",
+      });
+
+    const campaignsWithCounts = campaigns.map((camp) => {
+      const audiencesWithCounts = camp.audienceIds.map((aud) => ({
+        _id: aud._id,
+        name: aud.name,
+        contactCount: aud.contacts.length,
+      }));
+
+      return {
+        _id: camp._id,
+        subject: camp.subject,
+        clickRate: camp.clickRate,
+        audiences: audiencesWithCounts,
+      };
+    });
+
+    return res.status(200).json({
+      status: "success",
+      message: "Campañas con audiencias y conteo obtenidas correctamente",
+      campaigns: campaignsWithCounts,
+    });
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      status: "error",
+      message: "Error al obtener campañas con conteo de audiencias",
+    });
+  }
+};
+
 const getCampaignById = async (req, res) => {
   const { id } = req.params;
   try {
@@ -223,4 +265,5 @@ module.exports = {
   deleteCampaign,
   ClickCampaign,
   updateHtml,
+  getCampaignsWithAudienceCounts
 };
