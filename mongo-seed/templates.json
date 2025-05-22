@@ -24,6 +24,12 @@
                     "lineHeight": "140%",
                     "padding": "20px"
                   }
+                },
+                {
+                  "type": "html",
+                  "values": {
+                    "html": "<a href='http://localhost:3900/api/campaign/clickCampaign?campaignId={{campaignId}}' target='_blank' style='display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #3AAEE0; color: white; text-decoration: none; border-radius: 4px;'>Haz clic aquí</a>"
+                  }
                 }
               ],
               "values": {}
@@ -75,6 +81,12 @@
                     "fontSize": "18px",
                     "lineHeight": "140%"
                   }
+                },
+                {
+                  "type": "html",
+                  "values": {
+                    "html": "<a href='http://localhost:3900/api/campaign/clickCampaign?campaignId={{campaignId}}' target='_blank' style='display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #3AAEE0; color: white; text-decoration: none; border-radius: 4px;'>Haz clic aquí</a>"
+                  }
                 }
               ],
               "values": {}
@@ -124,7 +136,7 @@
                 {
                   "type": "html",
                   "values": {
-                    "html": "<a href='http://localhost:3900/api/campaign/clickCampaign?campaignId=681b7ab15a1d458a73b71237' target='_blank' style='display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #3AAEE0; color: white; text-decoration: none; border-radius: 4px;'>Haz clic aquí</a>"
+                    "html": "<a href='http://localhost:3900/api/campaign/clickCampaign?campaignId={{campaignId}}' target='_blank' style='display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #3AAEE0; color: white; text-decoration: none; border-radius: 4px;'>Haz clic aquí</a>"
                   }
                 }
               ],
@@ -172,6 +184,12 @@
                   "values": {
                     "text": "<h1>¡Solo por hoy!</h1><p>Obtén un 20% de descuento usando el código <strong>HOY20</strong>.</p>"
                   }
+                },
+                {
+                  "type": "html",
+                  "values": {
+                    "html": "<a href='http://localhost:3900/api/campaign/clickCampaign?campaignId={{campaignId}}' target='_blank' style='display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #3AAEE0; color: white; text-decoration: none; border-radius: 4px;'>Haz clic aquí</a>"
+                  }
                 }
               ],
               "values": {}
@@ -216,6 +234,12 @@
                   "type": "text",
                   "values": {
                     "text": "<h2>Estás invitado</h2><p>Únete a nuestro evento exclusivo el próximo jueves a las 19:00.</p>"
+                  }
+                },
+                {
+                  "type": "html",
+                  "values": {
+                    "html": "<a href='http://localhost:3900/api/campaign/clickCampaign?campaignId={{campaignId}}' target='_blank' style='display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #3AAEE0; color: white; text-decoration: none; border-radius: 4px;'>Haz clic aquí</a>"
                   }
                 }
               ],
@@ -266,7 +290,7 @@
                 {
                   "type": "html",
                   "values": {
-                    "html": "<a href='http://localhost:3900/api/campaign/clickCampaign?campaignId=681b7ab15a1d458a73b71237' target='_blank' style='display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #3AAEE0; color: white; text-decoration: none; border-radius: 4px;'>Haz clic aquí</a>"
+                    "html": "<a href='http://localhost:3900/api/campaign/clickCampaign?campaignId={{campaignId}}' target='_blank' style='display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #3AAEE0; color: white; text-decoration: none; border-radius: 4px;'>Haz clic aquí</a>"
                   }
                 }
               ],

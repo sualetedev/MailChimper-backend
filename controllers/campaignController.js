@@ -22,6 +22,17 @@ const createCampaign = async (req, res) => {
     });
 
     await campaign.save();
+
+    const updatedHtml = html.replace(
+      /{{campaignId}}/g,
+      campaign._id.toString()
+    );
+
+    if (updatedHtml !== html) {
+      campaign.html = updatedHtml;
+      await campaign.save();
+    }
+
     return res.status(201).json({
       status: "success",
       message: "Campaña creada correctamente",
@@ -56,7 +67,6 @@ const getCampaigns = async (req, res) => {
   }
 };
 
-
 const getCampaignsWithAudienceCounts = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -88,7 +98,6 @@ const getCampaignsWithAudienceCounts = async (req, res) => {
       message: "Campañas con audiencias y conteo obtenidas correctamente",
       campaigns: campaignsWithCounts,
     });
-
   } catch (error) {
     console.error(error);
     return res.status(500).json({
@@ -265,5 +274,5 @@ module.exports = {
   deleteCampaign,
   ClickCampaign,
   updateHtml,
-  getCampaignsWithAudienceCounts
+  getCampaignsWithAudienceCounts,
 };
